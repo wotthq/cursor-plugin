@@ -584,7 +584,7 @@ skills/
 ├── project-management/
 │   ├── SKILL.md
 │   ├── agents/
-│   │   └── openai.yaml
+│   │   └── agent.yaml
 │   ├── reference/
 │   │   ├── project-tool-reference.md
 │   │   └── project-workflows.md
@@ -599,7 +599,7 @@ skills/
 ├── notebook-management/
 │   ├── SKILL.md
 │   ├── agents/
-│   │   └── openai.yaml
+│   │   └── agent.yaml
 │   ├── reference/
 │   │   ├── notebook-tool-reference.md
 │   │   └── notebook-workflows.md
@@ -614,7 +614,7 @@ skills/
 └── search-project/
     ├── SKILL.md
     ├── agents/
-    │   └── openai.yaml
+    │   └── agent.yaml
     ├── reference/
     │   ├── search-tool-reference.md
     │   └── search-workflows.md
