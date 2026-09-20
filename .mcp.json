@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "wott": {
+      "type": "http",
+      "url": "https://mcp.wott.ai/mcp",
+      "oauth_resource": "https://mcp.wott.ai/mcp"
+    }
+  }
+}
