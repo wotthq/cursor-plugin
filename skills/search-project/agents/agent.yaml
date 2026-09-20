@@ -1,0 +1,6 @@
+interface:
+  display_name: "Project Search"
+  short_description: "Search project knowledge"
+  icon_small: "./assets/wott-small.png"
+  icon_large: "./assets/wott.png"
+  default_prompt: "Search my project for relevant notebooks and information."

@@ -1,0 +1,30 @@
+{
+"name": "Update Notebook Content and Metadata",
+"skills": ["notebook-management"],
+"query": "Update my Humanoid Robotics notebook with this section: '## Simulation Results\n\nThe latest simulation shows improved walking stability.' Also add the keywords 'humanoid' and 'simulation', and the hashtag 'robotics'.",
+"context": "The user has a project named 'AI Research' containing a notebook named 'Humanoid Robotics.md'. The exact project_id and item_id are not provided. The existing notebook contains research notes that must be preserved. The user wants to add content and explicitly update structured metadata.",
+"expected_behavior": [
+"Identifies that this is an update to an existing notebook",
+"Uses get_projects if the project_id is unknown",
+"Uses get_notebook to locate the correct notebook when item_id is unknown",
+"Uses update_notebook with project_id and item_id",
+"Supplies the requested content update",
+"Supplies metadata with keywords and hashtags as requested",
+"Does not provide a type field to update_notebook",
+"Does not provide user_id to update_notebook",
+"Does not replace unrelated notebook fields",
+"Preserves existing notebook content and metadata where the request does not ask for replacement",
+"Does not recreate the notebook using create_notebook",
+"Returns or reports the confirmed update result"
+],
+"success_criteria": [
+"The correct Humanoid Robotics notebook is identified",
+"update_notebook is used with the correct project_id and item_id",
+"The requested Simulation Results section is included in the update",
+"The requested keywords are supplied",
+"The requested robotics hashtag is supplied",
+"The model does not invent a type field",
+"The model does not overwrite unrelated notebook fields unnecessarily",
+"The model reports success only after the MCP operation succeeds"
+]
+}

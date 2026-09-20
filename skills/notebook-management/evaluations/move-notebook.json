@@ -1,0 +1,31 @@
+{
+"name": "Move and Rename Notebook",
+"skills": ["notebook-management"],
+"query": "Move my Humanoid Robotics notebook into the Experiments folder and rename it to Humanoid Robotics Experiments",
+"context": "The user has a project named 'AI Research'. It contains a Markdown notebook named 'Humanoid Robotics.md' at the project root and a folder named 'Experiments'. The exact project_id, notebook item_id, and folder item_id are not provided. The notebook must be moved and renamed without recreating it.",
+"expected_behavior": [
+"Identifies that the request is a move and rename operation",
+"Uses get_projects to identify the AI Research project when project_id is unknown",
+"Uses get_notebook to locate the existing Humanoid Robotics notebook",
+"Uses get_notebook to identify the Experiments folder when its item_id is unknown",
+"Uses update_notebook for the move and rename operation",
+"Supplies the existing notebook item_id",
+"Uses parent_id equal to the actual Experiments folder item_id",
+"Uses name equal to the requested new notebook name",
+"Does not use create_notebook to recreate the notebook",
+"Does not use delete_notebook as part of the move",
+"Does not provide a type field",
+"Does not provide user_id",
+"Understands that the Markdown filename is normalized to use the .md extension",
+"Reports the resulting notebook location and name"
+],
+"success_criteria": [
+"The existing notebook is updated rather than recreated",
+"The notebook is moved into the actual Experiments folder",
+"The notebook is renamed to Humanoid Robotics Experiments.md or the normalized equivalent returned by the server",
+"No delete operation occurs",
+"No duplicate notebook is created",
+"The correct project_id, notebook item_id, and parent_id are used",
+"The final response accurately describes the move and rename"
+]
+}

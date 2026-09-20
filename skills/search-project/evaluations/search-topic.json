@@ -1,0 +1,26 @@
+{
+  "name": "Search Technical Topic",
+  "skills": ["search-project"],
+  "query": "Find where I wrote about MCP OAuth, Cloud Run, and deployment",
+  "context": "The authenticated user has an project named 'AI Infrastructure'. The exact project_id is not provided. The project contains notebook content covering MCP servers, OAuth authentication, Cloud Run deployment, and related infrastructure. The user wants to locate the relevant notes.",
+  "expected_behavior": [
+    "Identifies that the user wants project knowledge discovery",
+    "Uses get_projects to identify the AI Infrastructure project when project_id is unknown",
+    "Uses the actual project_id returned by project discovery",
+    "Uses search_project",
+    "Constructs a query preserving important technical terms such as 'MCP', 'OAuth', 'Cloud Run', and 'deployment'",
+    "Does not reduce the query to a generic term such as 'deployment' when the specific terms are available",
+    "Returns relevant ranked notebook results",
+    "Does not invent the content of the notebooks",
+    "Does not modify any project or notebook data",
+    "Does not provide user_id"
+  ],
+  "success_criteria": [
+    "The correct project is searched",
+    "search_project receives a query containing the important technical concepts",
+    "The returned results are presented clearly",
+    "The model does not fabricate technical details that were not returned",
+    "No mutation tool is called",
+    "The response remains within the current search-project MCP contract"
+  ]
+}

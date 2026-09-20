@@ -1,0 +1,27 @@
+{
+"name": "Find and Read Notebook",
+"skills": ["notebook-management"],
+"query": "Find my notebook about humanoid robotics in the AI project and show me its contents",
+"context": "The user has access to a project named 'AI Research'. The project contains several notebook items, including a folder named 'Robotics' and a Markdown notebook named 'Humanoid Robotics.md' inside that folder. There are also other notebooks with similar names, including 'Robotics Notes.md' and 'Humanoid Robotics Experiments.md'. The exact project_id and item_id are not provided in the conversation.",
+"expected_behavior": [
+"Identifies that the user wants to find and read an existing notebook",
+"Uses get_projects to identify the relevant project when the project_id is unknown",
+"Uses get_notebook with search to find notebook items related to humanoid robotics",
+"Keeps the search scoped to the identified project",
+"Handles multiple matching notebook items rather than arbitrarily selecting one",
+"Uses item_id or path with get_notebook to retrieve the selected notebook",
+"Returns the Markdown content of the selected notebook",
+"Does not call create_notebook, update_notebook, or delete_notebook",
+"Does not provide user_id as an MCP tool argument",
+"Does not expose internal Firestore, OAuth, or authentication fields"
+],
+"success_criteria": [
+"The correct project is identified before retrieving the notebook",
+"Notebook discovery uses the current get_notebook tool rather than an invented search tool",
+"The final notebook retrieval uses a specific item_id or path",
+"The response contains the requested notebook content rather than only notebook metadata",
+"No notebook data is modified",
+"If multiple results remain genuinely ambiguous, the model asks the user to clarify instead of selecting arbitrarily",
+"The model uses only the current notebook-management MCP contract"
+]
+}

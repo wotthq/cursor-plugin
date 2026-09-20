@@ -1,0 +1,43 @@
+{
+  "name": "Handle Ambiguous Search Target",
+  "skills": ["search-project"],
+  "query": "Search my research project for robotics and tell me what is in the robotics notebook",
+  "context": "The authenticated user has several projects: 'AI Research', 'Robotics Research', and 'Physical AI Research'. The user has not specified which project they mean by 'research project'. The projects contain several robotics-related notebooks. Because both the project and the requested notebook are ambiguous, the model should resolve the project first and avoid arbitrarily selecting a notebook.",
+  "expected_behavior": [
+    "Recognizes that the project reference is ambiguous",
+    "Uses get_projects to inspect accessible projects",
+    "Identifies multiple plausible projects",
+    "Does not arbitrarily choose a project",
+    "Asks the user which project they mean",
+    "Does not call search_project until the project is identified",
+    "Does not call get_notebook until a specific notebook is identified",
+    "Does not modify any project or notebook data",
+    "Does not provide user_id"
+  ],
+  "success_criteria": [
+    "No incorrect project is searched",
+    "The model explicitly identifies the ambiguity",
+    "The user is asked to select the intended project",
+    "No notebook is arbitrarily selected",
+    "No mutation occurs",
+    "The model does not claim to have found or read a notebook"
+  ],
+  "additional_scenario": {
+    "query": "Search my Robotics Research project for robotics and show me the robotics notebook",
+    "context": "The project is now unambiguous, but search results contain 'Robotics.md', 'Robotics Research.md', and 'Robotics Notes.md'. The user has not provided enough information to determine which one they mean.",
+    "expected_behavior": [
+      "Uses search_project against the identified Robotics Research project",
+      "Reviews the returned results",
+      "Recognizes that multiple notebooks could satisfy 'the robotics notebook'",
+      "Does not arbitrarily select a notebook",
+      "Asks the user which notebook they want to open",
+      "Does not call get_notebook until the target is sufficiently identified"
+    ],
+    "success_criteria": [
+      "The correct project is searched",
+      "The ambiguity among notebook results is recognized",
+      "No incorrect notebook is opened",
+      "The model asks a concise clarification question"
+    ]
+  }
+}

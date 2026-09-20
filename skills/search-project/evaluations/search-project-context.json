@@ -1,0 +1,27 @@
+{
+  "name": "Search Before Building Notebook Context",
+  "skills": ["search-project"],
+  "query": "Find the notes about our production deployment process in my infrastructure project, then show me the most relevant notebook",
+  "context": "The authenticated user has an project named 'AI Infrastructure'. The project contains several notebooks related to deployment, including 'Production Deployment.md', 'Deployment Troubleshooting.md', and 'Cloud Run Deployment.md'. The exact project_id is not provided. The user wants to find and then read the most relevant notebook.",
+  "expected_behavior": [
+    "Uses get_projects to identify the AI Infrastructure project",
+    "Uses the actual project_id returned by project discovery",
+    "Uses search_project with a query such as 'production deployment process'",
+    "Inspects the ranked search results",
+    "Identifies the most relevant notebook from the returned results",
+    "Uses the returned markdown_item_id to call get_notebook when full notebook content is required",
+    "Does not invent notebook content",
+    "Does not create, update, or delete any notebook",
+    "Does not provide user_id",
+    "Reports the notebook based on actual MCP results"
+  ],
+  "success_criteria": [
+    "The project is correctly identified",
+    "search_project is used for discovery",
+    "The selected notebook comes from the actual search results",
+    "get_notebook receives the actual project_id and notebook item_id",
+    "The final response is based on retrieved notebook content",
+    "No project or notebook mutation occurs",
+    "The model does not invent a notebook ID"
+  ]
+}

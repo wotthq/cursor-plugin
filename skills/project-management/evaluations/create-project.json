@@ -1,0 +1,39 @@
+{
+"name": "Create Project",
+"skills": ["project-management"],
+"query": "Create a new project called Physical AI Research with the description 'Research and development of physical AI, robotics, and intelligent machines.'",
+"context": "The user wants to create a new project. No project_id is known or required because the project does not yet exist. The authenticated user is allowed to create projects.",
+"expected_behavior": [
+"Recognizes that the user wants to create a new project",
+"Uses create_project",
+"Supplies the requested project name",
+"Supplies the requested description",
+"Does not provide user_id",
+"Does not invent project_id, project_slug, owner_id, or other server-generated fields",
+"Does not call update_project after creation unless verification is explicitly useful",
+"Uses the MCP response as the source of truth for the created project ID and slug",
+"Reports the created project accurately"
+],
+"success_criteria": [
+"A project is created using create_project",
+"The project name is 'Physical AI Research'",
+"The description is preserved accurately",
+"The model does not attempt to supply server-generated fields",
+"The returned project_id and project_slug are reported from the actual tool response",
+"No user_id is supplied by the model"
+],
+"additional_scenario": {
+"query": "Create a project called Robotics Lab without a description",
+"context": "The user wants a project with only a name. No description was requested.",
+"expected_behavior": [
+"Uses create_project",
+"Supplies the requested name",
+"Does not invent a description",
+"Does not provide user_id"
+],
+"success_criteria": [
+"The project is created with the requested name",
+"No unnecessary description is invented"
+]
+}
+}

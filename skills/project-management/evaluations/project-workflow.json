@@ -1,0 +1,29 @@
+{
+"name": "Project Discovery and Update Workflow",
+"skills": ["project-management"],
+"query": "Find my Physical AI Research project, update its description to 'Research and development focused on physical AI and robotics', set its location to Lucknow, and then show me the updated project details",
+"context": "The authenticated user has access to multiple projects, including 'Physical AI Research'. The exact project_id is not provided. The existing project contains other information that must remain unchanged. The user wants the description and location changed, followed by verification of the updated project.",
+"expected_behavior": [
+"Recognizes that this is a multi-step project workflow",
+"Uses get_projects to identify the Physical AI Research project",
+"Uses the returned project_id for the update",
+"Uses update_project with only the requested mutable fields",
+"Sets the requested description",
+"Sets location to Lucknow",
+"Does not modify status, visibility, enabled state, membership, billing, API keys, or other administrative fields",
+"Does not provide user_id",
+"Uses get_projects again when verification requires a fresh project list, or otherwise verifies the result using available MCP responses",
+"Reports the final project state based on confirmed tool results"
+],
+"success_criteria": [
+"The correct Physical AI Research project is selected",
+"The actual project_id returned by discovery is reused for the update",
+"The description is updated correctly",
+"The location is updated correctly",
+"Unrelated project fields are not changed",
+"The final details are based on confirmed MCP data",
+"The workflow does not create a duplicate project",
+"The workflow does not attempt unsupported project operations",
+"No user_id is sent to any MCP tool"
+]
+}

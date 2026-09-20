@@ -1,0 +1,39 @@
+{
+"name": "Handle Ambiguous Project Request",
+"skills": ["project-management"],
+"query": "Update my research project and change the description to 'New research direction'",
+"context": "The authenticated user has access to several projects: 'AI Research', 'AI Research Archive', 'Robotics Research', 'Research Platform', and 'Physical AI Research'. The user has not specified which project they mean. The exact project_id is not provided.",
+"expected_behavior": [
+"Recognizes that the target project is ambiguous",
+"Uses get_projects to inspect accessible projects",
+"Identifies multiple plausible projects",
+"Does not arbitrarily select one project",
+"Does not call update_project while the target remains ambiguous",
+"Asks the user which project they mean",
+"Does not provide user_id",
+"Does not claim that the description was updated"
+],
+"success_criteria": [
+"No project is modified",
+"The model identifies the ambiguity",
+"The model asks the user to specify the intended project",
+"The clarification includes enough information for the user to select a project",
+"No unsupported or guessed project_id is used",
+"The model does not falsely report success"
+],
+"additional_scenario": {
+"query": "Update the project called AI Research and change its description to 'New research direction'",
+"context": "The authenticated user has two projects named 'AI Research' in different project contexts returned by get_projects. Their project_ids and descriptions differ, but the user's request does not provide enough information to distinguish them.",
+"expected_behavior": [
+"Uses get_projects to inspect the available projects",
+"Recognizes that the name alone does not uniquely identify the target",
+"Does not arbitrarily select a project_id",
+"Asks the user to distinguish the intended project using available project information",
+"Does not call update_project before clarification"
+],
+"success_criteria": [
+"The model refuses to guess between duplicate project names",
+"No project is modified until the target is unambiguous"
+]
+}
+}

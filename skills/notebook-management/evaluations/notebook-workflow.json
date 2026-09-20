@@ -1,0 +1,32 @@
+{
+"name": "Complete Notebook Research Workflow",
+"skills": ["notebook-management"],
+"query": "Set up a research area in my AI Research project. Create a Research folder, create a notebook called Humanoid Robotics inside it with the initial notes below, then add a section called 'Current Focus' with the text 'Simulation and locomotion planning'.",
+"context": "The user has access to a project named 'AI Research'. The project_id is not provided. The Research folder does not exist yet. The initial notebook content requested by the user is: '# Humanoid Robotics\n\nResearch notes on humanoid robots.' The user wants the final notebook to contain the initial content plus a new Current Focus section.",
+"expected_behavior": [
+"Identifies that this is a multi-step notebook workflow",
+"Uses get_projects to identify the AI Research project",
+"Uses create_notebook with type 'folder' to create the Research folder",
+"Creates the Research folder at the project root",
+"Uses the returned folder item_id as parent_id for the notebook",
+"Uses create_notebook with type 'file' to create the Humanoid Robotics notebook",
+"Preserves the exact initial Markdown content",
+"Uses update_notebook with the created notebook item_id to add the Current Focus section",
+"Does not recreate the notebook during the update",
+"Maintains the correct project_id throughout the workflow",
+"Does not provide user_id to any MCP tool",
+"Uses get_notebook to verify the final notebook when useful",
+"Reports the completed workflow and final notebook location"
+],
+"success_criteria": [
+"The Research folder exists in the AI Research project",
+"The Humanoid Robotics notebook exists inside the Research folder",
+"The notebook contains the original initial notes",
+"The notebook also contains a Current Focus section",
+"The Current Focus section contains 'Simulation and locomotion planning'",
+"The notebook is created once and updated once rather than deleted and recreated",
+"The correct IDs are carried between tool calls",
+"The final result is verified or accurately reported from successful MCP responses",
+"No unrelated project or notebook data is modified"
+]
+}

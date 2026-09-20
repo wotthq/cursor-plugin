@@ -1,0 +1,25 @@
+{
+"name": "Find Project",
+"skills": ["project-management"],
+"query": "Find my AI Research project and tell me its current details",
+"context": "The authenticated user has access to several projects. One project is named 'AI Research'. Other projects include 'AI Research Archive', 'Robotics Research', and 'Research Platform'. The exact project_id is not provided. The user wants to inspect the current project details without changing anything.",
+"expected_behavior": [
+"Recognizes that the request is read-only project discovery",
+"Uses get_projects to retrieve projects accessible to the authenticated user",
+"Identifies the project named 'AI Research' from the returned results",
+"Uses the actual project information returned by the MCP server",
+"Does not call create_project or update_project",
+"Does not invent a project_id",
+"Does not provide user_id to the MCP tool",
+"Returns relevant project details available from the MCP response",
+"Does not expose internal authentication or login fields"
+],
+"success_criteria": [
+"The correct AI Research project is identified",
+"The model uses get_projects rather than an invented get_project tool",
+"No project data is modified",
+"The response is based on actual MCP results",
+"The model does not confuse AI Research with AI Research Archive",
+"No user_id or authentication data is exposed"
+]
+}

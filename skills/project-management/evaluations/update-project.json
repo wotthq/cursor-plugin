@@ -1,0 +1,45 @@
+{
+"name": "Update Project",
+"skills": ["project-management"],
+"query": "Update my Physical AI Research project. Change the description to 'Research on physical AI, robotics, humanoids, and intelligent machines' and set the location to Lucknow.",
+"context": "The authenticated user has access to a project named 'Physical AI Research'. The exact project_id is not provided. The project contains existing values for its name, status, visibility, notebook count, members, and other project metadata. The user only wants to change the description and location.",
+"expected_behavior": [
+"Recognizes that the request is an update to an existing project",
+"Uses get_projects to identify the correct project when project_id is unknown",
+"Uses the actual returned project_id",
+"Uses update_project for the mutation",
+"Supplies the new description",
+"Supplies the new location",
+"Does not modify the project name because the user did not request it",
+"Does not modify status, visibility, enabled state, membership, billing, API keys, or other administrative fields",
+"Does not provide user_id",
+"Does not recreate the project",
+"Reports the confirmed update result"
+],
+"success_criteria": [
+"The correct Physical AI Research project is identified",
+"update_project is used with the actual project_id",
+"The description is updated to the requested value",
+"The location is updated to Lucknow",
+"Unrequested project fields remain unchanged",
+"The model does not invent unsupported update parameters",
+"The model does not provide user_id",
+"The final response accurately reports the successful update"
+],
+"additional_scenario": {
+"query": "Rename my Physical AI Research project to Lucknow Physical AI Research",
+"context": "The project_id is already available from the preceding conversation.",
+"expected_behavior": [
+"Uses update_project directly without unnecessary project discovery",
+"Supplies the existing project_id",
+"Supplies project_name with the requested new name",
+"Does not change the description or other fields",
+"Does not provide user_id"
+],
+"success_criteria": [
+"Only the project name is changed",
+"The existing project_id is preserved",
+"No unrelated project fields are modified"
+]
+}
+}

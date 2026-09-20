@@ -1,0 +1,6 @@
+interface:
+  display_name: "Notebook Management"
+  short_description: "Manage wott notebooks and build context"
+  icon_small: "./assets/wott-small.png"
+  icon_large: "./assets/wott.png"
+  default_prompt: "Help me find and organize my wott notebooks and use them as context."

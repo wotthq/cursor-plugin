@@ -1,0 +1,29 @@
+{
+"name": "Create Notebook File and Folder",
+"skills": ["notebook-management"],
+"query": "In my AI Research project, create a Research folder and create a notebook called Humanoid Robotics inside it with these initial notes: '# Humanoid Robotics\n\nResearch notes on humanoid robots, simulation, locomotion, and manipulation.'",
+"context": "The user has access to a project named 'AI Research'. The project_id is not provided. The user wants a new folder at the project root and a Markdown notebook file inside that folder.",
+"expected_behavior": [
+"Identifies that the request requires both folder creation and notebook file creation",
+"Uses get_projects to identify the AI Research project when project_id is unknown",
+"Uses create_notebook with type 'folder' to create the Research folder",
+"Creates the folder at the project root by omitting parent_id or using parent_id null",
+"Uses the returned folder item_id as parent_id when creating the notebook",
+"Uses create_notebook with type 'file' for the Humanoid Robotics notebook",
+"Supplies project_id, type, and name for the notebook",
+"Supplies the requested Markdown content without replacing it with generic placeholder content",
+"Does not provide user_id to the MCP tools",
+"Does not use update_notebook to create a new notebook",
+"Does not expose internal authentication information"
+],
+"success_criteria": [
+"The Research folder is created in the correct project",
+"The Humanoid Robotics notebook is created inside the newly created Research folder",
+"The notebook is created as a Markdown file",
+"The requested Markdown content is preserved",
+"The model uses the folder's actual returned item_id as parent_id",
+"The model uses create_notebook for both creation operations",
+"The final response accurately identifies what was created and where",
+"No unrelated notebook fields are modified"
+]
+}

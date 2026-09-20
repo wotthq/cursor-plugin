@@ -1,0 +1,28 @@
+{
+"name": "Handle Ambiguous Notebook Request",
+"skills": ["notebook-management"],
+"query": "Update my robotics notebook with the latest notes",
+"context": "The user has access to multiple projects and several notebooks with similar names. The projects include 'AI Research' and 'Robotics Project'. Matching notebook items include 'Robotics Notes.md', 'Robotics Research.md', and 'Humanoid Robotics.md'. The phrase 'latest notes' does not identify a specific notebook, and no project_id or item_id is provided. The requested update content is also not included in the current request.",
+"expected_behavior": [
+"Recognizes that the requested target notebook is ambiguous",
+"Does not arbitrarily select a project",
+"Does not arbitrarily select one of the matching notebooks",
+"Uses discovery tools only if necessary to narrow the candidates",
+"Uses get_projects when project context is required",
+"Uses get_notebook with search when notebook discovery is required",
+"Does not call update_notebook while the target remains ambiguous",
+"Asks the user which project and notebook they mean",
+"Recognizes that the requested update content is missing",
+"Asks for the actual notes or content to add",
+"Does not call create_notebook or delete_notebook",
+"Does not provide user_id"
+],
+"success_criteria": [
+"No notebook is modified",
+"The model identifies both target ambiguity and missing update content",
+"The clarification request is specific enough for the user to answer",
+"The model does not guess based on notebook names",
+"The model does not claim that an update was performed",
+"The model remains within the current notebook-management MCP contract"
+]
+}

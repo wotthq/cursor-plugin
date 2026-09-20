@@ -1,0 +1,27 @@
+{
+  "name": "Search Project Notebook Knowledge",
+  "skills": ["search-project"],
+  "query": "Search my AI Research project for humanoid robotics",
+  "context": "The authenticated user has access to an project named 'AI Research'. The exact project_id is not provided. The project contains notebooks including 'Humanoid Robotics.md', 'Robotics Simulation.md', and 'AI Research Notes.md'. The user wants to find relevant information but does not ask to modify any notebook.",
+  "expected_behavior": [
+    "Recognizes this as a read-only project search request",
+    "Uses get_projects to identify the AI Research project when project_id is unknown",
+    "Uses the actual project_id returned by get_projects",
+    "Uses search_project to search the project",
+    "Uses a meaningful query such as 'humanoid robotics'",
+    "Does not provide user_id to the MCP tool",
+    "Does not call create_notebook, update_notebook, or delete_notebook",
+    "Presents the returned notebook results in ranked order",
+    "Does not invent notebook content",
+    "Does not expose internal authentication information"
+  ],
+  "success_criteria": [
+    "The correct AI Research project is selected",
+    "search_project is used with the actual project_id",
+    "The search query preserves the important concepts from the user's request",
+    "Relevant notebook results are returned from the MCP response",
+    "No project or notebook data is modified",
+    "The model does not invent project or notebook IDs",
+    "The model does not claim that information exists unless supported by search results"
+  ]
+}

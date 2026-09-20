@@ -1,0 +1,6 @@
+interface:
+  display_name: "WOTT"
+  short_description: "Use wott to manage projects and notebooks"
+  icon_small: "./assets/wott-small.png"
+  icon_large: "./assets/wott.png"
+  default_prompt: "Use wott to search, read, create, and update projects and notebooks."
