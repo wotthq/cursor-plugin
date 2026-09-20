@@ -1,0 +1,50 @@
+{
+  "apps": "./.mcp.json",
+  "author": {
+    "email": "support@wott.ai",
+    "name": "WOTT",
+    "url": "https://wott.ai/"
+  },
+  "description": "WOTT workflows for managing projects, notebooks, and knowledge.",
+  "homepage": "https://wott.ai/",
+  "interface": {
+    "brandColor": "#111111",
+    "brandColorDark": "#EEEEEE",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "category": "Productivity",
+    "composerIcon": "./assets/wott-small.png",
+    "defaultPrompt": [
+      "Search WOTT projects and notebooks, create new projects or notebooks, and update existing project and notebook information"
+    ],
+    "developerName": "WOTT AI",
+    "displayName": "WOTT",
+    "logo": "./assets/wott.png",
+    "logoDark": "./assets/wott.png",
+    "longDescription": "WOTT provides authenticated access to projects and notebooks. Use wott to read existing projects and notebooks, create new projects and notebooks, and update existing project and notebook information.",
+    "privacyPolicyURL": "https://wott.ai/privacy",
+    "screenshots": [],
+    "shortDescription": "Manage wott projects and notebooks",
+    "termsOfServiceURL": "https://wott.ai/terms",
+    "websiteURL": "https://wott.ai/"
+  },
+  "keywords": [
+    "wott",
+    "projects",
+    "notebooks",
+    "notes",
+    "knowledge",
+    "knowledge-management",
+    "research",
+    "documentation",
+    "productivity"
+  ],
+  "license": "Apache 2.0",
+  "mcpServers": "./.mcp.json",
+  "name": "WOTT",
+  "repository": "https://github.com/wotthq/cursor-plugin",
+  "skills": "./skills/",
+  "version": "0.1.0"
+}
